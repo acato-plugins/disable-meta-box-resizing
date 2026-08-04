@@ -1,0 +1,49 @@
+/**
+ * Restores the pre-WordPress 7.0 meta box layout.
+ *
+ * The body class is set server side by the Editor class and toggled live by the
+ * preference toggle, so flipping the option takes effect without a reload.
+ *
+ * A note on `:where()`: it is deliberately not used here. These rules have to
+ * outrank core's own, and `:where()` contributes zero specificity, which would
+ * leave every override below depending on stylesheet order instead.
+ */
+body.dmbr-meta-box-resizing-disabled {
+
+	// Core writes the pane size as an inline style while dragging, so this is
+	// the one place an `!important` is unavoidable.
+	.edit-post-meta-boxes-main {
+		block-size: auto !important;
+	}
+
+	// The bar holding the collapse toggle and the drag handle.
+	.edit-post-meta-boxes-main__presenter {
+		display: none;
+	}
+
+	// Core collapses the pane by putting `hidden` on the liner. With the toggle
+	// gone there would be no way back, so keep the meta boxes visible.
+	.edit-post-meta-boxes-main__liner[hidden] {
+		display: block;
+	}
+
+	// Let the meta boxes flow into the editor's own scroll container instead of
+	// scrolling inside a pane of their own. The liner selector repeats the pane
+	// class so it outranks core's `.edit-post-meta-boxes-main .…__liner`.
+	:is(
+		.edit-post-meta-boxes-main,
+		.edit-post-meta-boxes-main .edit-post-meta-boxes-main__liner
+	) {
+		overflow: visible;
+	}
+
+	// Core shrinks the canvas so the resizable pane fits on screen. With no pane
+	// to make room for, give the canvas its full height back and let the meta
+	// boxes sit below it, the way they did before WordPress 7.0.
+	.interface-interface-skeleton__content:has(.edit-post-meta-boxes-main) .editor-visual-editor {
+		flex-basis: auto;
+		flex-shrink: 0;
+		min-block-size: 100%;
+		overflow: visible;
+	}
+}

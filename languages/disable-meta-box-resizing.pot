@@ -1,0 +1,168 @@
+# Copyright (C) 2026 Acato
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Disable Meta Box Resizing 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disable-meta-box-resizing\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-04T12:41:24+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: disable-meta-box-resizing\n"
+
+#. Plugin Name of the plugin
+#: disable-meta-box-resizing.php
+msgid "Disable Meta Box Resizing"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: disable-meta-box-resizing.php
+msgid "https://wordpress.org/plugins/disable-meta-box-resizing/"
+msgstr ""
+
+#. Description of the plugin
+#: disable-meta-box-resizing.php
+msgid "Lets each user turn off the resizable meta box panel that WordPress 7.0 added to the bottom of the post editor, restoring the classic always-expanded panel."
+msgstr ""
+
+#. Author of the plugin
+#: disable-meta-box-resizing.php
+msgid "Acato"
+msgstr ""
+
+#. Author URI of the plugin
+#: disable-meta-box-resizing.php
+msgid "https://acato.nl"
+msgstr ""
+
+#: includes/class-preference.php:53
+msgid "Disable the resizable meta box panel in the post editor."
+msgstr ""
+
+#: includes/class-profile.php:59
+msgid "Editor meta boxes"
+msgstr ""
+
+#: includes/class-profile.php:62
+msgid "Meta box panel"
+msgstr ""
+
+#: includes/class-profile.php:72
+msgid "Disable resizing of the meta box panel"
+msgstr ""
+
+#: includes/class-profile.php:75
+msgid "Hides the drag handle at the bottom of the post editor and keeps the meta box panel expanded, the way it worked before WordPress 7.0."
+msgstr ""
+
+#: includes/class-requirements.php:51
+msgid "Plugin could not be activated"
+msgstr ""
+
+#. translators: 1: required WordPress version, 2: WordPress version currently running.
+#: includes/class-requirements.php:110
+#, php-format
+msgid "Disable Meta Box Resizing requires WordPress %1$s or newer, but this site runs WordPress %2$s. The plugin has been deactivated. Please update WordPress to version 7 or newer and activate the plugin again."
+msgstr ""
+
+#: includes/class-settings.php:111
+#: includes/class-settings.php:112
+#: includes/class-settings.php:127
+#: includes/class-settings.php:128
+#: includes/class-settings.php:146
+#: includes/class-settings.php:147
+msgid "Meta Box Resizing"
+msgstr ""
+
+#: includes/class-settings.php:225
+msgid "Default state"
+msgstr ""
+
+#: includes/class-settings.php:226
+msgid "Disable meta box resizing by default"
+msgstr ""
+
+#: includes/class-settings.php:227
+msgid "Applies to users who have not made a choice of their own yet. Users who did keep their own setting."
+msgstr ""
+
+#: includes/class-settings.php:230
+msgid "Uninstall"
+msgstr ""
+
+#: includes/class-settings.php:231
+msgid "Remove all data of this plugin when it is uninstalled"
+msgstr ""
+
+#: includes/class-settings.php:232
+msgid "Deletes these settings and every stored user preference. Leave this off to keep the preferences when reinstalling."
+msgstr ""
+
+#: includes/class-settings.php:235
+msgid "Users list"
+msgstr ""
+
+#: includes/class-settings.php:236
+msgid "Show a column with each user's setting"
+msgstr ""
+
+#: includes/class-settings.php:237
+msgid "Adds a read only column to the users overview so you can see who has resizing disabled."
+msgstr ""
+
+#: includes/class-settings.php:250
+msgid "Meta box resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it."
+msgstr ""
+
+#: includes/class-settings.php:297
+msgid "Settings saved."
+msgstr ""
+
+#: includes/class-settings.php:326
+msgid "You are not allowed to change these settings."
+msgstr ""
+
+#: includes/class-users-list.php:59
+msgid "Meta box resizing"
+msgstr ""
+
+#: includes/class-users-list.php:100
+msgid "Filter by meta box resizing"
+msgstr ""
+
+#: includes/class-users-list.php:103
+msgid "Meta box resizing: all"
+msgstr ""
+
+#: includes/class-users-list.php:112
+msgid "Filter"
+msgstr ""
+
+#: includes/class-users-list.php:203
+msgid "Disabled"
+msgstr ""
+
+#: includes/class-users-list.php:204
+msgid "Enabled"
+msgstr ""
+
+#: src/more-menu-item.js:24
+#: src/preferences-section.js:104
+msgid "Disable meta box resizing"
+msgstr ""
+
+#: src/preferences-section.js:96
+msgid "Meta boxes"
+msgstr ""
+
+#: src/preferences-section.js:108
+msgid "Hides the drag handle at the bottom of the editor and keeps the meta box panel expanded."
+msgstr ""
+
+#: src/use-meta-box-resizing.js:59
+msgid "Could not save the meta box preference."
+msgstr ""

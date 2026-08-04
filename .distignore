@@ -1,0 +1,20 @@
+# Files and folders that should not end up in the plugin published on
+# WordPress.org. The compiled assets in /build are shipped, the sources are not.
+/.distignore
+/.editorconfig
+/.git
+/.github
+/.gitattributes
+/.gitignore
+/.idea
+/.nvmrc
+/.wordpress-org
+/composer.json
+/composer.lock
+/node_modules
+/package.json
+/package-lock.json
+/phpcs.xml.dist
+/phpstan.neon
+/src
+/bin
