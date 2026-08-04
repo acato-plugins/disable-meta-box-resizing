@@ -1,7 +1,21 @@
 # See: https://github.com/rtCamp/action-phpcs-code-review
+#
+# The action posts its findings as pull request review comments. It reads the
+# token from GH_BOT_TOKEN, but there is no need for a personal access token: the
+# built-in GITHUB_TOKEN acts as github-actions[bot], which is a different
+# identity from the pull request author, so GitHub's "you cannot review your own
+# pull request" rule does not get in the way.
 on: pull_request
 
 name: Inspections
+
+# GITHUB_TOKEN is read-only by default in many organisations, and the action
+# needs to write review comments, so the permissions are stated explicitly.
+permissions:
+  contents: read
+  pull-requests: write
+  statuses: write
+
 jobs:
   runPHPCSInspection:
     name: Run PHPCS inspection
@@ -14,6 +28,6 @@ jobs:
       - name: Run PHPCS inspection
         uses: rtCamp/action-phpcs-code-review@v2.0.3
         env:
-          GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+          GH_BOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SKIP_FOLDERS: ".github,build,languages,node_modules"
           PHPCS_SNIFFS_EXCLUDE: "WordPress.Files.FileName"
