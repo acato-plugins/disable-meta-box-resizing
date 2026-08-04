@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-04T12:41:24+00:00\n"
+"POT-Creation-Date: 2026-08-04T13:02:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: disable-meta-box-resizing\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #. Plugin URI of the plugin
 #: disable-meta-box-resizing.php
-msgid "https://wordpress.org/plugins/disable-meta-box-resizing/"
+msgid "https://github.com/acato-plugins/disable-meta-box-resizing"
 msgstr ""
 
 #. Description of the plugin
@@ -126,27 +126,27 @@ msgstr ""
 msgid "You are not allowed to change these settings."
 msgstr ""
 
-#: includes/class-users-list.php:59
+#: includes/class-users-list.php:60
 msgid "Meta box resizing"
 msgstr ""
 
-#: includes/class-users-list.php:100
+#: includes/class-users-list.php:142
 msgid "Filter by meta box resizing"
 msgstr ""
 
-#: includes/class-users-list.php:103
+#: includes/class-users-list.php:145
 msgid "Meta box resizing: all"
 msgstr ""
 
-#: includes/class-users-list.php:112
+#: includes/class-users-list.php:154
 msgid "Filter"
 msgstr ""
 
-#: includes/class-users-list.php:203
+#: includes/class-users-list.php:245
 msgid "Disabled"
 msgstr ""
 
-#: includes/class-users-list.php:204
+#: includes/class-users-list.php:246
 msgid "Enabled"
 msgstr ""
 

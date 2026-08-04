@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Disable Meta Box Resizing
- * Plugin URI:        https://wordpress.org/plugins/disable-meta-box-resizing/
+ * Plugin URI:        https://github.com/acato-plugins/disable-meta-box-resizing
  * Description:       Lets each user turn off the resizable meta box panel that WordPress 7.0 added to the bottom of the post editor, restoring the classic always-expanded panel.
  * Version:           1.0.0
  * Requires at least: 7.0.0
