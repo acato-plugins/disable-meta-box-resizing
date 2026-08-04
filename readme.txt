@@ -79,6 +79,12 @@ Only if you ask for it. Data removal on uninstall is off by default; switch it o
 
 Translations are managed on [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/disable-meta-box-resizing/) and are downloaded by WordPress automatically. The plugin ships a `.pot` template for translators, but no locale files of its own.
 
+== Screenshots ==
+
+1. The Meta boxes section on the Appearance tab of the editor's Preferences dialog.
+2. The settings screen, where an administrator sets the default and the extras.
+3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle.
+
 == Changelog ==
 
 = 1.0.0 =
