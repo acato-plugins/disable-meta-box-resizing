@@ -22,7 +22,7 @@ class Requirements {
 	 *
 	 * @var string
 	 */
-	public const MIN_WP_VERSION = '7.0.0';
+	public const MIN_WP_VERSION = '7.0';
 
 	/**
 	 * Whether the current WordPress version is new enough.

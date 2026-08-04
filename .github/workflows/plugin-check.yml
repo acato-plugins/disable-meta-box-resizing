@@ -1,10 +1,20 @@
 # See: https://github.com/WordPress/plugin-check-action
+#
+# The checkout contains the whole repository, while WordPress.org only ever
+# receives what .distignore lets through. The exclusions below keep the two in
+# step, so this job checks the same file set that actually ships. /src is not
+# excluded: it is distributed on purpose, so the minified assets in /build have
+# readable sources next to them.
 name: Plugin Check
 on:
   pull_request:
   push:
     branches:
       - main
+
+permissions:
+  contents: read
+
 jobs:
   plugin-check:
     name: Run Plugin Check
@@ -26,5 +36,5 @@ jobs:
         uses: wordpress/plugin-check-action@v1
         with:
           build-dir: "./"
-          exclude-directories: "node_modules,src,.idea"
-          exclude-files: ".nvmrc,.gitignore,.distignore,.gitattributes"
+          exclude-directories: ".github,.idea,.wordpress-org,bin,node_modules,vendor"
+          exclude-files: ".distignore,.editorconfig,.gitattributes,.gitignore,.nvmrc,composer.json,composer.lock,package-lock.json,package.json,phpcs.xml.dist,phpstan.neon"

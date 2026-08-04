@@ -1,8 +1,8 @@
 === Disable Meta Box Resizing ===
 Contributors: acato, paulacato
 Tags: editor, meta boxes, block editor, preferences, custom fields
-Requires at least: 7.0.0
-Tested up to: 7.0.2
+Requires at least: 7.0
+Tested up to: 7.0
 Requires PHP: 8.3
 Stable tag: 1.0.0
 License: GPLv2 or later
@@ -44,7 +44,7 @@ On multisite the settings live in the network admin, and each site's Settings me
 * Development happens at [github.com/acato-plugins/disable-meta-box-resizing](https://github.com/acato-plugins/disable-meta-box-resizing). The uncompiled sources of the editor script and stylesheet ship in `/src`, next to the compiled files in `/build`.
 * The plugin only touches the post editor. The site editor has no meta boxes and is left alone.
 * One piece of user meta and one settings array. No front end code.
-* On WordPress older than 7.0.0 the plugin deactivates itself and explains why, since there is no resizable panel there to switch off.
+* On WordPress older than 7.0 the plugin deactivates itself and explains why, since there is no resizable panel there to switch off.
 
 == Installation ==
 
@@ -93,7 +93,7 @@ Translations are managed on [translate.wordpress.org](https://translate.wordpres
 * Available from the editor's Options menu, the Preferences modal and the user profile.
 * Site wide settings for the default state, data removal on uninstall and the users list column.
 * Filter the users overview by the preference.
-* Deactivates itself with an explanation on WordPress older than 7.0.0.
+* Deactivates itself with an explanation on WordPress older than 7.0.
 
 == Upgrade Notice ==
 
