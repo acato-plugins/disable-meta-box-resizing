@@ -1,5 +1,6 @@
 # Files and folders that should not end up in the plugin published on
-# WordPress.org. The compiled assets in /build are shipped, the sources are not.
+# WordPress.org. The uncompiled sources in /src are shipped alongside /build,
+# so the minified assets always have readable sources next to them.
 /.distignore
 /.editorconfig
 /.git
@@ -16,5 +17,4 @@
 /package-lock.json
 /phpcs.xml.dist
 /phpstan.neon
-/src
 /bin

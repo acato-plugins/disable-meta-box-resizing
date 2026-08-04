@@ -3,7 +3,6 @@
 /.github export-ignore
 /.idea export-ignore
 /node_modules export-ignore
-/src export-ignore
 /vendor export-ignore
 
 # Files

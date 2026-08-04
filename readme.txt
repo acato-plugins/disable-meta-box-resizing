@@ -41,6 +41,7 @@ On multisite the settings live in the network admin, and each site's Settings me
 
 = Good to know =
 
+* Development happens at [github.com/acato-plugins/disable-meta-box-resizing](https://github.com/acato-plugins/disable-meta-box-resizing). The uncompiled sources of the editor script and stylesheet ship in `/src`, next to the compiled files in `/build`.
 * The plugin only touches the post editor. The site editor has no meta boxes and is left alone.
 * One piece of user meta and one settings array. No front end code.
 * On WordPress older than 7.0.0 the plugin deactivates itself and explains why, since there is no resizable panel there to switch off.
