@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,8 @@ Turn off the resizable meta box panel that WordPress 7.0 added to the bottom of 
 WordPress 7.0 turned the meta box area at the bottom of the post editor into a collapsible, drag-to-resize panel. It is a nice addition for some, and a constant source of accidental drags and hidden fields for others.
 
 This plugin gives every user their own switch. Turn it on and the panel goes back to how it behaved before WordPress 7.0: no drag handle, no collapse toggle, the meta boxes simply sit below a full height canvas again.
+
+Because they sit below the canvas, they start off screen. A **Meta boxes** bar stays on the bottom edge of the editor to say they are there: press it to jump to them, press it again to come back to the content. It only scrolls out of the way once you have scrolled past it yourself.
 
 The setting is stored per user, so one editor can keep the resizable panel while another turns it off. Nothing changes for anyone who leaves the option alone.
 
@@ -83,9 +85,13 @@ Translations are managed on [translate.wordpress.org](https://translate.wordpres
 
 1. The Meta boxes section on the Appearance tab of the editor's Preferences dialog.
 2. The settings screen, where an administrator sets the default and the extras.
-3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle.
+3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle, and the Meta boxes bar on the bottom edge leading to them.
 
 == Changelog ==
+
+= 1.0.1 =
+* Added a Meta boxes bar on the bottom edge of the editor when resizing is disabled, so the meta boxes below the canvas are no longer easy to miss. Press it to jump to them and again to come back.
+* Fixes [#2](https://github.com/acato-plugins/disable-meta-box-resizing/issues/2).
 
 = 1.0.0 =
 * Initial release.
@@ -96,6 +102,9 @@ Translations are managed on [translate.wordpress.org](https://translate.wordpres
 * Deactivates itself with an explanation on WordPress older than 7.0.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+The meta boxes below the canvas now have a bar on the bottom edge of the editor that leads to them.
 
 = 1.0.0 =
 Initial release.

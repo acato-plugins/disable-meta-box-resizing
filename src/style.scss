@@ -10,13 +10,22 @@
  */
 body.dmbr-meta-box-resizing-disabled {
 
+	// The bar is subtracted from the canvas and applied to the bar itself, so
+	// the two have to agree. Core sizes its own bar the same way.
+	--dmbr-meta-bar-block-size: 32px;
+
+	@media (pointer: coarse) {
+		--dmbr-meta-bar-block-size: 36px;
+	}
+
 	// Core writes the pane size as an inline style while dragging, so this is
 	// the one place an `!important` is unavoidable.
 	.edit-post-meta-boxes-main {
 		block-size: auto !important;
 	}
 
-	// The bar holding the collapse toggle and the drag handle.
+	// The bar holding the collapse toggle and the drag handle. The plugin's own
+	// bar at the end of this file takes its place.
 	.edit-post-meta-boxes-main__presenter {
 		display: none;
 	}
@@ -30,20 +39,59 @@ body.dmbr-meta-box-resizing-disabled {
 	// Let the meta boxes flow into the editor's own scroll container instead of
 	// scrolling inside a pane of their own. The liner selector repeats the pane
 	// class so it outranks core's `.edit-post-meta-boxes-main .…__liner`.
-	:is(
-		.edit-post-meta-boxes-main,
-		.edit-post-meta-boxes-main .edit-post-meta-boxes-main__liner
-	) {
+	.edit-post-meta-boxes-main,
+	.edit-post-meta-boxes-main .edit-post-meta-boxes-main__liner {
 		overflow: visible;
 	}
 
 	// Core shrinks the canvas so the resizable pane fits on screen. With no pane
 	// to make room for, give the canvas its full height back and let the meta
-	// boxes sit below it, the way they did before WordPress 7.0.
+	// boxes sit below it, the way they did before WordPress 7.0. All of it bar
+	// the strip the bar below occupies: that keeps the bar on the bottom edge
+	// of the screen without ever covering the canvas.
 	.interface-interface-skeleton__content:has(.edit-post-meta-boxes-main) .editor-visual-editor {
 		flex-basis: auto;
 		flex-shrink: 0;
-		min-block-size: 100%;
+		min-block-size: calc(100% - var(--dmbr-meta-bar-block-size));
 		overflow: visible;
+	}
+
+	// The bar `meta-boxes-bar.js` portals to the end of the editor's scroll
+	// container: the last thing in the flow, stuck to the bottom of the screen
+	// until the reader has scrolled past everything above it. Styled after
+	// core's own presenter, so the editor keeps one visual language.
+	.dmbr-meta-boxes-bar {
+		position: sticky;
+		inset-block-end: 0;
+		z-index: 1;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		block-size: var(--dmbr-meta-bar-block-size);
+		margin: 0;
+		padding-inline: 24px 12px;
+		border: 0;
+		background-color: #fff;
+		box-shadow: 0 -1px rgba(0, 0, 0, 0.133);
+		color: inherit;
+		font: inherit;
+		text-align: start;
+		cursor: pointer;
+
+		&:is(:hover, :focus-visible) {
+			color: var(--wp-admin-theme-color);
+		}
+
+		&:focus-visible {
+			outline: var(--wp-admin-border-width-focus) solid var(--wp-admin-theme-color);
+			outline-offset: calc(var(--wp-admin-border-width-focus) * -1);
+		}
+
+		svg {
+			flex-shrink: 0;
+			fill: currentcolor;
+		}
 	}
 }
