@@ -81,6 +81,10 @@ Only if you ask for it. Data removal on uninstall is off by default; switch it o
 
 Translations are managed on [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/disable-meta-box-resizing/) and are downloaded by WordPress automatically. The plugin ships a `.pot` template for translators, but no locale files of its own.
 
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/c0a4068d-1475-4ec9-8550-85984214d223)
+
 == Screenshots ==
 
 1. The Meta boxes section on the Appearance tab of the editor's Preferences dialog.
