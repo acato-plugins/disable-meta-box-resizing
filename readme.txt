@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.0
 Requires PHP: 8.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,9 @@ Translations are managed on [translate.wordpress.org](https://translate.wordpres
 
 == Changelog ==
 
+= 1.0.2 =
+* No changes, re-tagged for deployment purposes.
+
 = 1.0.1 =
 * Added a Meta boxes bar on the bottom edge of the editor when resizing is disabled, so the meta boxes below the canvas are no longer easy to miss. Press it to jump to them and again to come back.
 * Fixes [#2](https://github.com/acato-plugins/disable-meta-box-resizing/issues/2).
@@ -100,11 +103,3 @@ Translations are managed on [translate.wordpress.org](https://translate.wordpres
 * Site wide settings for the default state, data removal on uninstall and the users list column.
 * Filter the users overview by the preference.
 * Deactivates itself with an explanation on WordPress older than 7.0.
-
-== Upgrade Notice ==
-
-= 1.0.1 =
-The meta boxes below the canvas now have a bar on the bottom edge of the editor that leads to them.
-
-= 1.0.0 =
-Initial release.
