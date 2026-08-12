@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle, and the Meta boxes bar on the bottom edge leading to them.
 
 == Changelog ==
+
+= 1.0.5 =
+* Fixed the meta boxes staying hidden, and the Meta boxes bar leading nowhere, for anyone who had never dragged the panel open before disabling resizing. WordPress backs the collapsed state with an `!important` rule, which the plugin's stylesheet did not outrank.
 
 = 1.0.4 =
 * Lowered the PHP requirement from 8.3 to 8.2, so the plugin installs on sites that are still on PHP 8.2. The code itself is unchanged; it never used anything PHP 8.3 introduced.

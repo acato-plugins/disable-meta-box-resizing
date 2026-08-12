@@ -18,8 +18,9 @@ body.dmbr-meta-box-resizing-disabled {
 		--dmbr-meta-bar-block-size: 36px;
 	}
 
-	// Core writes the pane size as an inline style while dragging, so this is
-	// the one place an `!important` is unavoidable.
+	// Core writes the pane size as an inline style while dragging, and a pane
+	// that was never dragged starts out at `height: 0`, so this has to outrank
+	// an inline declaration.
 	.edit-post-meta-boxes-main {
 		block-size: auto !important;
 	}
@@ -30,10 +31,13 @@ body.dmbr-meta-box-resizing-disabled {
 		display: none;
 	}
 
-	// Core collapses the pane by putting `hidden` on the liner. With the toggle
-	// gone there would be no way back, so keep the meta boxes visible.
+	// Core collapses the pane by putting `hidden` on the liner, and the pane
+	// starts out collapsed for anyone who never dragged it open. With the toggle
+	// gone there would be no way back, so keep the meta boxes visible. The
+	// editor stylesheet backs `[hidden]` with `display: none !important`, so
+	// this needs the same weight to win.
 	.edit-post-meta-boxes-main__liner[hidden] {
-		display: block;
+		display: block !important;
 	}
 
 	// Let the meta boxes flow into the editor's own scroll container instead of
