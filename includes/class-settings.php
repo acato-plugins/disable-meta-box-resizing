@@ -60,6 +60,13 @@ class Settings {
 	public function register(): void {
 		add_action( 'admin_init', array( $this, 'register_fields' ) );
 
+		// Registered for both list tables, so the link is there whether the
+		// plugin is activated per site or across the network.
+		$basename = plugin_basename( DMBR_PLUGIN_FILE );
+
+		add_filter( 'plugin_action_links_' . $basename, array( $this, 'add_action_link' ) );
+		add_filter( 'network_admin_plugin_action_links_' . $basename, array( $this, 'add_action_link' ) );
+
 		if ( is_multisite() ) {
 			add_action( 'network_admin_menu', array( $this, 'add_network_page' ) );
 			add_action( 'network_admin_edit_' . self::NETWORK_ACTION, array( $this, 'save_network_settings' ) );
@@ -163,9 +170,51 @@ class Settings {
 	 * @return void
 	 */
 	public function redirect_to_network_page(): void {
-		wp_safe_redirect( network_admin_url( 'settings.php?page=' . self::PAGE_SLUG ) );
+		wp_safe_redirect( $this->get_page_url() );
 
 		exit;
+	}
+
+	/**
+	 * Put a link to the settings screen on the plugin's row in the plugins
+	 * overview.
+	 *
+	 * Left untyped on purpose: this is a filter callback in a file under
+	 * strict_types, so a loosely typed value from a third party would
+	 * otherwise be fatal.
+	 *
+	 * @param mixed $links Action links of this plugin.
+	 *
+	 * @return mixed
+	 */
+	public function add_action_link( $links ) {
+		// On multisite the screen lives in the network admin, so a plain site
+		// administrator cannot open it and should not be sent there.
+		if ( ! is_array( $links ) || ! current_user_can( $this->get_capability() ) ) {
+			return $links;
+		}
+
+		array_unshift(
+			$links,
+			sprintf(
+				'<a href="%s">%s</a>',
+				esc_url( $this->get_page_url() ),
+				esc_html__( 'Settings', 'disable-meta-box-resizing' )
+			)
+		);
+
+		return $links;
+	}
+
+	/**
+	 * URL of the settings screen, wherever it lives on this install.
+	 *
+	 * @return string
+	 */
+	private function get_page_url(): string {
+		return is_multisite()
+			? network_admin_url( 'settings.php?page=' . self::PAGE_SLUG )
+			: admin_url( 'options-general.php?page=' . self::PAGE_SLUG );
 	}
 
 	/**
