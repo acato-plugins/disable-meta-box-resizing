@@ -2,7 +2,7 @@
 Contributors: acato, paulacato
 Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.2
 Stable tag: 1.0.6
 License: GPLv2 or later
