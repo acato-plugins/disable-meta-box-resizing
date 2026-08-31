@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,8 @@ Under **Settings → Meta Box Resizing** (or **Network Admin → Settings → Me
 * **Users list** — adds a read only column to the users overview showing each user's setting, plus a dropdown to filter the list on it.
 
 On multisite the settings live in the network admin, and each site's Settings menu links through to them.
+
+The plugin's row on the **Plugins** screen has a **Settings** link straight to that screen, for anyone who can open it.
 
 = Good to know =
 
@@ -92,6 +94,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle, and the Meta boxes bar on the bottom edge leading to them.
 
 == Changelog ==
+
+= 1.0.6 =
+* Added a **Settings** link to the plugin's row on the Plugins screen, so the settings screen is reachable without going looking for it in the menu. On multisite it leads to the network settings screen, and only shows for users who can actually open it.
 
 = 1.0.5 =
 * Fixed the meta boxes staying hidden, and the Meta boxes bar leading nowhere, for anyone who had never dragged the panel open before disabling resizing. WordPress backs the collapsed state with an `!important` rule, which the plugin's stylesheet did not outrank.

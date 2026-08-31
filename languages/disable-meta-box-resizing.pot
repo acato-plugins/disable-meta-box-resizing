@@ -78,6 +78,10 @@ msgstr ""
 msgid "Meta Box Resizing"
 msgstr ""
 
+#: includes/class-settings.php:202
+msgid "Settings"
+msgstr ""
+
 #: includes/class-settings.php:225
 msgid "Default state"
 msgstr ""
