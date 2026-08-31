@@ -1,0 +1,37 @@
+{
+    "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+    "landingPage": "/wp-admin/post.php?post=1&action=edit",
+    "preferredVersions": {
+        "php": "8.2",
+        "wp": "latest"
+    },
+    "phpExtensionBundles": [
+        "kitchen-sink"
+    ],
+    "steps": [
+        {
+            "step": "login",
+            "username": "admin",
+            "password": "password"
+        },
+        {
+            "step": "installPlugin",
+            "pluginData": {
+                "resource": "wordpress.org/plugins",
+                "slug": "disable-meta-box-resizing"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php require_once 'wordpress/wp-load.php'; update_option( 'dmbr_settings', array( 'default_state' => true, 'remove_data_on_uninstall' => false, 'show_in_user_table' => true ) );"
+        },
+        {
+            "step": "writeFile",
+            "path": "/wordpress/wp-content/mu-plugins/dmbr-preview-meta-boxes.php",
+            "data": "<?php\n/**\n * Plugin Name: Disable Meta Box Resizing - preview extras\n * Description: Only loaded in the WordPress Playground preview. Adds a few\n *              classic meta boxes so the meta box panel this plugin is about\n *              actually has something in it.\n */\n\ndefined( 'ABSPATH' ) || exit;\n\nadd_action(\n\t'add_meta_boxes_post',\n\tfunction () {\n\t\tadd_meta_box(\n\t\t\t'dmbr-preview-intro',\n\t\t\t'Disable Meta Box Resizing - try it out',\n\t\t\tfunction () {\n\t\t\t\techo '<p><strong>Resizing is switched off for this user</strong>, so these meta boxes sit below a full height canvas again: no drag handle, no collapse toggle.</p>';\n\t\t\t\techo '<p>Scroll up to the editor and use the <strong>Meta boxes</strong> bar on the bottom edge to jump between the content and this panel.</p>';\n\t\t\t\techo '<p>Turn it back on under <strong>Options (three dots) &rarr; Disable meta box resizing</strong>, or in <strong>Preferences &rarr; Appearance &rarr; Meta boxes</strong>. The editor switches over without reloading.</p>';\n\t\t\t\techo '<p>Site wide defaults live under <strong>Settings &rarr; Meta Box Resizing</strong>.</p>';\n\t\t\t},\n\t\t\t'post',\n\t\t\t'normal',\n\t\t\t'high'\n\t\t);\n\n\t\tadd_meta_box(\n\t\t\t'dmbr-preview-fields',\n\t\t\t'A plugin with custom fields',\n\t\t\tfunction () {\n\t\t\t\techo '<p><label>Subtitle<br /><input type=\"text\" class=\"widefat\" value=\"Stand-in for the custom fields a real site has down here\" /></label></p>';\n\t\t\t\techo '<p><label>Reading time<br /><input type=\"text\" class=\"widefat\" value=\"4 minutes\" /></label></p>';\n\t\t\t},\n\t\t\t'post',\n\t\t\t'normal',\n\t\t\t'default'\n\t\t);\n\n\t\tadd_meta_box(\n\t\t\t'dmbr-preview-more',\n\t\t\t'And another one below it',\n\t\t\tfunction () {\n\t\t\t\techo '<p>The more meta boxes a site registers, the more the resizable panel gets in the way. This is the situation the plugin is for.</p>';\n\t\t\t},\n\t\t\t'post',\n\t\t\t'advanced',\n\t\t\t'low'\n\t\t);\n\t}\n);\n"
+        }
+    ]
+}
