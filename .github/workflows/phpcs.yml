@@ -1,20 +1,18 @@
-# See: https://github.com/rtCamp/action-phpcs-code-review
+# See: https://github.com/PHPCSStandards/PHP_CodeSniffer
 #
-# The action posts its findings as pull request review comments. It reads the
-# token from GH_BOT_TOKEN, but there is no need for a personal access token: the
-# built-in GITHUB_TOKEN acts as github-actions[bot], which is a different
-# identity from the pull request author, so GitHub's "you cannot review your own
-# pull request" rule does not get in the way.
-on: pull_request
-
+# PHPCS runs from the project's own phpcs.xml.dist, installed through Composer,
+# so the job checks exactly what `composer install && vendor/bin/phpcs` checks
+# on a developer machine. The full report goes to the job log; cs2pr turns the
+# same findings into inline annotations on the pull request.
 name: Inspections
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
-# GITHUB_TOKEN is read-only by default in many organisations, and the action
-# needs to write review comments, so the permissions are stated explicitly.
 permissions:
   contents: read
-  pull-requests: write
-  statuses: write
 
 jobs:
   runPHPCSInspection:
@@ -22,12 +20,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          php-version: "8.2"
+          coverage: none
+          tools: cs2pr
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --no-progress
 
       - name: Run PHPCS inspection
-        uses: rtCamp/action-phpcs-code-review@v2.0.3
-        env:
-          GH_BOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SKIP_FOLDERS: ".github,build,languages,node_modules"
-          PHPCS_SNIFFS_EXCLUDE: "WordPress.Files.FileName"
+        run: vendor/bin/phpcs --report-full --report-checkstyle=./phpcs-report.xml
+
+      - name: Annotate findings
+        if: ${{ failure() }}
+        run: cs2pr ./phpcs-report.xml
