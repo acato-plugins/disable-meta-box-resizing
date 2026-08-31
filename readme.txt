@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,6 +94,9 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle, and the Meta boxes bar on the bottom edge leading to them.
 
 == Changelog ==
+
+= 1.0.7 =
+* Added a Playground blueprint, so the plugin directory can offer a **Live Preview**: it opens the editor with resizing switched off, a few demo meta boxes below the canvas and the site wide defaults already set. No change to the plugin itself.
 
 = 1.0.6 =
 * Added a **Settings** link to the plugin's row on the Plugins screen, so the settings screen is reachable without going looking for it in the menu. On multisite it leads to the network settings screen, and only shows for users who can actually open it.
