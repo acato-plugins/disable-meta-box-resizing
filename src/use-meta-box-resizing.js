@@ -22,7 +22,7 @@ const isResizingDisabled = () => document.body.classList.contains( BODY_CLASS );
  * the preferences section and the Options menu item in step without a store of
  * their own.
  *
- * @return {{isDisabled: boolean, isSaving: boolean, toggle: Function}} Current state and setter.
+ * @return {{isDisabled: boolean, isSaving: boolean, toggle: (value: boolean) => Promise<void>}} Current state and setter.
  */
 export const useMetaBoxResizing = () => {
 	const [ isDisabled, setIsDisabled ] = useState( isResizingDisabled );
