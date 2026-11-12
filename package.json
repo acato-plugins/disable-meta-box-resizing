@@ -12,22 +12,28 @@
 		"node": ">=24"
 	},
 	"scripts": {
-		"build": "wp-scripts build",
-		"start": "wp-scripts start",
+		"build": "wp-scripts build src/index.js src/settings.js src/menu-pointer.js",
+		"start": "wp-scripts start src/index.js src/settings.js src/menu-pointer.js",
 		"format": "wp-scripts format",
 		"lint:js": "wp-scripts lint-js",
 		"lint:style": "wp-scripts lint-style"
 	},
 	"devDependencies": {
-		"@wordpress/api-fetch": "^7.52.0",
-		"@wordpress/components": "^38.0.0",
-		"@wordpress/data": "^10.52.0",
-		"@wordpress/editor": "^14.52.0",
-		"@wordpress/element": "^8.4.0",
-		"@wordpress/i18n": "^6.25.0",
-		"@wordpress/icons": "^15.3.0",
-		"@wordpress/notices": "^5.52.0",
-		"@wordpress/plugins": "^7.52.0",
-		"@wordpress/scripts": "^34.0.0"
+		"@wordpress/a11y": "^5.1.0",
+		"@wordpress/api-fetch": "^8.1.0",
+		"@wordpress/components": "^44.0.0",
+		"@wordpress/data": "^11.1.0",
+		"@wordpress/editor": "^16.1.0",
+		"@wordpress/element": "^10.1.0",
+		"@wordpress/i18n": "^7.1.0",
+		"@wordpress/icons": "^20.0.0",
+		"@wordpress/notices": "^6.1.0",
+		"@wordpress/plugins": "^8.1.0",
+		"@wordpress/scripts": "^37.1.0"
+	},
+	"overrides": {
+		"serialize-javascript": "^7.1.4",
+		"smol-toml": "^1.9.1",
+		"js-yaml@5": "^5.5.0"
 	}
 }
