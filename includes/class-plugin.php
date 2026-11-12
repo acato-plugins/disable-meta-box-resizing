@@ -52,5 +52,6 @@ final class Plugin {
 		( new Editor() )->register();
 		( new Profile() )->register();
 		( new Users_List() )->register();
+		( new Tour() )->register();
 	}
 }

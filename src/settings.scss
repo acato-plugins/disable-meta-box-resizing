@@ -1,0 +1,337 @@
+@use "banner";
+
+/**
+ * The settings screen and its walkthrough.
+ *
+ * Every colour is a token, set once per scheme: light, with more and with
+ * less contrast, and dark, with more and with less contrast again. The admin
+ * colour scheme a user picked on their profile sets the accent. The
+ * walkthrough's steps are appended to <body>, outside .dmbr-settings, so they
+ * take the tokens themselves. Text is at least 4.5:1 and every boundary that
+ * means something at least 3:1 in every scheme.
+ */
+
+// Tokens: light ------------------------------------------------------------
+
+:is(.dmbr-settings, .dmbr-pointer) {
+	--dmbr-page: #f0f0f1;
+	--dmbr-surface: #fff;
+	--dmbr-soft: #f6f7f7;
+	--dmbr-rule: #dcdcde;
+	--dmbr-border: #8c8f94;
+	--dmbr-ink: #1d2327;
+	--dmbr-ink-soft: #3c434a;
+	--dmbr-muted: #646970;
+	--dmbr-edge: #{banner.$banner-edge};
+
+	// The admin colour scheme sets this; the fallback is the default
+	// scheme's blue, for the few screens that do not.
+	--dmbr-accent: var(--wp-admin-theme-color, #2271b1);
+
+	// The accent for links and what has to stand out against the surface.
+	// Most admin colour schemes' accents do that as they are; the few that
+	// are too light are darkened below, each by no more than it needs.
+	--dmbr-accent-strong: var(--dmbr-accent);
+}
+
+// The admin colour schemes whose accent is too light for text at 4.5:1 on
+// white: Light, Midnight and Ocean need a tenth darker, Sunrise a quarter.
+:is(.admin-color-light, .admin-color-midnight, .admin-color-ocean) :is(.dmbr-settings, .dmbr-pointer) {
+	--dmbr-accent-strong: color-mix(in srgb, var(--dmbr-accent) 90%, #000);
+}
+
+.admin-color-sunrise :is(.dmbr-settings, .dmbr-pointer) {
+	--dmbr-accent-strong: color-mix(in srgb, var(--dmbr-accent) 75%, #000);
+}
+
+// More contrast: black text, every grey a step darker, rules that read as
+// lines, and the accent darkened on every colour scheme. The .wp-admin in
+// front outranks the colour scheme rules above.
+@media (prefers-contrast: more) {
+
+	.wp-admin :is(.dmbr-settings, .dmbr-pointer) {
+		--dmbr-soft: #f0f0f1;
+		--dmbr-rule: #646970;
+		--dmbr-border: #3c434a;
+		--dmbr-ink: #000;
+		--dmbr-ink-soft: #1d2327;
+		--dmbr-muted: #3c434a;
+		--dmbr-edge: #000;
+		--dmbr-accent-strong: color-mix(in srgb, var(--dmbr-accent) 70%, #000);
+	}
+}
+
+// Less contrast, for those who find stark black on white tiring: softer ink
+// and hairlines, an off-white surface. Text still reads at 4.5:1 and more.
+@media (prefers-contrast: less) {
+
+	.wp-admin :is(.dmbr-settings, .dmbr-pointer) {
+		--dmbr-surface: #fcfcfd;
+		--dmbr-soft: #f7f7f8;
+		--dmbr-rule: #e6e6e8;
+		--dmbr-border: #a7aaad;
+		--dmbr-ink: #2c3338;
+		--dmbr-ink-soft: #50575e;
+		--dmbr-edge: #2c3036;
+	}
+}
+
+// Tokens: dark -------------------------------------------------------------
+
+// Dark follows the operating system, on the plugin's own screen only, which
+// paints the whole page to match (see below). The rest of the admin has no
+// dark scheme of its own, so the plugin does not impose one there. The
+// accent is mixed with white until it reads on the dark surface.
+@media (prefers-color-scheme: dark) {
+
+	.dmbr-page,
+	.dmbr-page :is(.dmbr-settings, .dmbr-pointer) {
+		color-scheme: dark;
+
+		--dmbr-page: #121417;
+		--dmbr-surface: #1c1f24;
+		--dmbr-soft: #22262c;
+		--dmbr-rule: #353b43;
+		--dmbr-border: #8c8f94;
+		--dmbr-ink: #f0f0f1;
+		--dmbr-ink-soft: #dcdcde;
+		--dmbr-muted: #a7aaad;
+		--dmbr-edge: #{banner.$banner-edge};
+		--dmbr-accent: var(--wp-admin-theme-color, #2271b1);
+		--dmbr-accent-strong: color-mix(in srgb, var(--dmbr-accent) 50%, #fff);
+	}
+}
+
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+
+	.dmbr-page,
+	.dmbr-page :is(.dmbr-settings, .dmbr-pointer) {
+		--dmbr-page: #000;
+		--dmbr-surface: #0a0a0a;
+		--dmbr-soft: #141414;
+		--dmbr-rule: #8c8f94;
+		--dmbr-border: #c3c4c7;
+		--dmbr-ink: #fff;
+		--dmbr-ink-soft: #f0f0f1;
+		--dmbr-muted: #dcdcde;
+		--dmbr-edge: #000;
+		--dmbr-accent-strong: color-mix(in srgb, var(--dmbr-accent) 30%, #fff);
+	}
+}
+
+@media (prefers-color-scheme: dark) and (prefers-contrast: less) {
+
+	.dmbr-page,
+	.dmbr-page :is(.dmbr-settings, .dmbr-pointer) {
+		--dmbr-page: #1c1f24;
+		--dmbr-surface: #24282e;
+		--dmbr-soft: #2a2f36;
+		--dmbr-rule: #3a4048;
+		--dmbr-border: #646970;
+		--dmbr-ink: #d6d8da;
+		--dmbr-ink-soft: #c3c4c7;
+		--dmbr-edge: #2c3036;
+		--dmbr-accent-strong: color-mix(in srgb, var(--dmbr-accent) 60%, #fff);
+	}
+}
+
+// WordPress's own parts of the screen, in the dark: the page, the headings
+// and labels, the fields, and the notices of WordPress and other plugins,
+// whose fixed dark text would otherwise vanish. The menu and the admin bar
+// are dark already and keep the admin colour scheme.
+@media (prefers-color-scheme: dark) {
+
+	html:has(body.dmbr-page),
+	body.dmbr-page,
+	.dmbr-page #wpwrap {
+		background: var(--dmbr-page);
+	}
+
+	.dmbr-page :is(#wpbody-content, #wpfooter) {
+		color: var(--dmbr-ink);
+	}
+
+	.dmbr-page #wpbody-content :is(h1, h2, h3, p, label, .form-table th, .form-table td) {
+		color: var(--dmbr-ink);
+	}
+
+	.dmbr-page #wpbody-content .description,
+	.dmbr-page #wpfooter {
+		color: var(--dmbr-muted);
+	}
+
+	.dmbr-page #wpbody-content a:not(.button),
+	.dmbr-page #wpbody-content .button-link,
+	.dmbr-page #wpfooter a {
+		color: var(--dmbr-accent-strong);
+	}
+
+	.dmbr-page #wpbody-content input[type="checkbox"] {
+		background-color: var(--dmbr-soft);
+		border-color: var(--dmbr-border);
+	}
+
+	.dmbr-page #wpbody-content .notice {
+		background: var(--dmbr-surface);
+		color: var(--dmbr-ink);
+		box-shadow: none;
+		border-block: 1px solid var(--dmbr-rule);
+		border-inline-end: 1px solid var(--dmbr-rule);
+	}
+
+	.dmbr-page #wpbody-content .notice-dismiss::before {
+		color: var(--dmbr-muted);
+	}
+}
+
+// The settings screen --------------------------------------------------------
+
+// Each setting reads as one block: a hairline between them, which with more
+// contrast turns into a line that holds its own.
+.dmbr-settings .form-table tr + tr {
+	border-block-start: 1px solid var(--dmbr-rule);
+}
+
+.dmbr-settings .form-table input[type="checkbox"]:focus-visible {
+	outline: 2px solid var(--dmbr-accent-strong);
+	outline-offset: 2px;
+}
+
+// The way back into the walkthrough, at the foot of the screen.
+.dmbr-settings .dmbr-tour-replay {
+	margin-block: 2em 0;
+
+	.button-link {
+		color: var(--dmbr-accent-strong);
+		min-block-size: 24px;
+		text-decoration: underline;
+	}
+}
+
+// The walkthrough's steps --------------------------------------------------
+
+.dmbr-pointer .wp-pointer-content {
+	background: var(--dmbr-surface);
+	border: 1px solid var(--dmbr-rule);
+	border-radius: 8px;
+	box-shadow: 0 10px 28px -10px rgb(0 0 0 / 0.35), 0 1px 2px rgb(0 0 0 / 0.06);
+	color: var(--dmbr-ink);
+	overflow: hidden;
+	padding: 0;
+
+	@media (prefers-contrast: more) {
+		border-width: 2px;
+	}
+
+	// Forced colours drop the backgrounds; the card keeps an edge so it
+	// still stands apart from the page.
+	@media (forced-colors: active) {
+		border: 1px solid CanvasText;
+	}
+}
+
+.dmbr-pointer .dmbr-pointer-head {
+
+	@include banner.banner;
+
+	padding-block: 14px 0;
+	padding-inline: 20px;
+}
+
+.dmbr-pointer .wp-pointer-content .dmbr-pointer-eyebrow {
+	color: rgb(255 255 255 / 0.75);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+
+	@media (prefers-contrast: more) {
+		color: #fff;
+	}
+}
+
+// Core's blue title bar and its flag give way to the header above.
+.dmbr-pointer .wp-pointer-content h3 {
+	background: none;
+	border: 0;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.4;
+	margin: 0;
+	padding-block: 2px 14px;
+	padding-inline: 0;
+
+	&::before {
+		content: none;
+	}
+}
+
+// How far along, as a line under the header: green into purple, the
+// banner's two glows.
+.dmbr-pointer-progress {
+	background: rgb(255 255 255 / 0.12);
+	block-size: 3px;
+	display: block;
+	margin-inline: -20px;
+
+	span {
+		background: linear-gradient(90deg, #3eaa78, #b45ac4);
+		block-size: 100%;
+		display: block;
+		inline-size: var(--dmbr-progress, 100%);
+
+		@media (prefers-reduced-motion: no-preference) {
+			transition: inline-size 200ms ease;
+		}
+
+		@media (forced-colors: active) {
+			background: Highlight;
+			forced-color-adjust: none;
+		}
+	}
+}
+
+.dmbr-pointer .wp-pointer-content > p {
+	color: var(--dmbr-ink-soft);
+	font-size: 13px;
+	line-height: 1.6;
+	margin: 0;
+	padding-block: 14px 0;
+	padding-inline: 20px;
+}
+
+.dmbr-pointer .wp-pointer-buttons {
+	border-block-start: 1px solid var(--dmbr-rule);
+	margin-block-start: 16px;
+	padding-block: 12px;
+	padding-inline: 20px;
+}
+
+.dmbr-pointer-buttons {
+	align-items: center;
+	display: flex;
+	gap: 0.75em;
+	justify-content: flex-end;
+
+	// Skip is a quiet link, kept apart from Next. Core's .button-primary
+	// keeps the admin colour scheme's own colours, with white text.
+	.button-link {
+		color: var(--dmbr-muted);
+		margin-inline-end: auto;
+		min-block-size: 24px;
+		text-decoration: underline;
+
+		&:hover {
+			color: var(--dmbr-ink);
+		}
+	}
+}
+
+// The arrow: dark where it touches the header, as the steps open below
+// their target.
+.dmbr-pointer.wp-pointer-top :is(.wp-pointer-arrow, .wp-pointer-arrow-inner) {
+	border-block-end-color: var(--dmbr-edge);
+}

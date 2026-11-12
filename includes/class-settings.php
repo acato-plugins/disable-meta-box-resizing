@@ -59,6 +59,7 @@ class Settings {
 	 */
 	public function register(): void {
 		add_action( 'admin_init', array( $this, 'register_fields' ) );
+		add_filter( 'admin_body_class', array( $this, 'filter_admin_body_class' ) );
 
 		// Registered for both list tables, so the link is there whether the
 		// plugin is activated per site or across the network.
@@ -170,7 +171,7 @@ class Settings {
 	 * @return void
 	 */
 	public function redirect_to_network_page(): void {
-		wp_safe_redirect( $this->get_page_url() );
+		wp_safe_redirect( self::page_url() );
 
 		exit;
 	}
@@ -190,7 +191,7 @@ class Settings {
 	public function add_action_link( $links ) {
 		// On multisite the screen lives in the network admin, so a plain site
 		// administrator cannot open it and should not be sent there.
-		if ( ! is_array( $links ) || ! current_user_can( $this->get_capability() ) ) {
+		if ( ! is_array( $links ) || ! current_user_can( self::capability() ) ) {
 			return $links;
 		}
 
@@ -198,7 +199,7 @@ class Settings {
 			$links,
 			sprintf(
 				'<a href="%s">%s</a>',
-				esc_url( $this->get_page_url() ),
+				esc_url( self::page_url() ),
 				esc_html__( 'Settings', 'disable-meta-box-resizing' )
 			)
 		);
@@ -211,10 +212,48 @@ class Settings {
 	 *
 	 * @return string
 	 */
-	private function get_page_url(): string {
+	public static function page_url(): string {
 		return is_multisite()
 			? network_admin_url( 'settings.php?page=' . self::PAGE_SLUG )
 			: admin_url( 'options-general.php?page=' . self::PAGE_SLUG );
+	}
+
+	/**
+	 * Whether an admin screen is the plugin's settings screen.
+	 *
+	 * Matches the screen on a single site and in the network admin. The
+	 * shortcut in a site's admin on multisite redirects before it renders, so
+	 * it never needs to match.
+	 *
+	 * @param mixed $hook_suffix Hook suffix or screen id of the screen.
+	 *
+	 * @return bool
+	 */
+	public static function is_settings_screen( $hook_suffix ): bool {
+		return is_string( $hook_suffix ) && str_contains( $hook_suffix, 'page_' . self::PAGE_SLUG );
+	}
+
+	/**
+	 * Mark the settings screen, so its stylesheet can paint the whole page in
+	 * the dark colour scheme.
+	 *
+	 * Left untyped on purpose: this is a filter callback in a file under
+	 * strict_types, and other plugins on the same filter are not guaranteed to
+	 * hand back a string.
+	 *
+	 * @param mixed $classes Space separated list of admin body classes.
+	 *
+	 * @return string
+	 */
+	public function filter_admin_body_class( $classes ): string {
+		$classes = is_string( $classes ) ? $classes : '';
+		$screen  = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+		if ( ! $screen instanceof \WP_Screen || ! self::is_settings_screen( $screen->id ) ) {
+			return $classes;
+		}
+
+		return trim( $classes . ' dmbr-page' );
 	}
 
 	/**
@@ -295,7 +334,7 @@ class Settings {
 	 */
 	public function render_section_description(): void {
 		printf(
-			'<p>%s</p>',
+			'<p class="dmbr-intro">%s</p>',
 			esc_html__( 'Meta box resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it.', 'disable-meta-box-resizing' )
 		);
 	}
@@ -326,7 +365,7 @@ class Settings {
 	 * @return void
 	 */
 	public function render_page(): void {
-		if ( ! current_user_can( $this->get_capability() ) ) {
+		if ( ! current_user_can( self::capability() ) ) {
 			return;
 		}
 
@@ -338,7 +377,7 @@ class Settings {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Display only flag set by our own redirect after a nonce checked save.
 		$is_updated = $is_network && isset( $_GET['updated'] );
 		?>
-		<div class="wrap">
+		<div class="wrap dmbr-settings">
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 			<?php if ( $is_updated ) : ?>
@@ -371,7 +410,7 @@ class Settings {
 	 * @return void
 	 */
 	public function save_network_settings(): void {
-		if ( ! current_user_can( $this->get_capability() ) ) {
+		if ( ! current_user_can( self::capability() ) ) {
 			wp_die( esc_html__( 'You are not allowed to change these settings.', 'disable-meta-box-resizing' ) );
 		}
 
@@ -421,7 +460,7 @@ class Settings {
 	 *
 	 * @return string
 	 */
-	private function get_capability(): string {
+	public static function capability(): string {
 		return is_multisite() ? 'manage_network_options' : 'manage_options';
 	}
 }
