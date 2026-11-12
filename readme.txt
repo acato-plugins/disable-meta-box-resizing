@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle, and the Meta boxes bar on the bottom edge leading to them.
 
 == Changelog ==
+
+= 1.1.1 =
+* Fixed the arrows on the Meta boxes bar, and the checkmark in the Options menu, which 1.1.0 had changed to thin outlines along with its tooling update. They look as they did before again.
+* Build tooling only: the remaining vulnerable development packages are pinned to fixed versions. Nothing of it ships with the plugin.
 
 = 1.1.0 =
 * Added a walkthrough of the settings screen, on WordPress's own admin pointers. A card beside the Settings menu leads to it until it is taken or put off with **Not now**, and it can be taken again from the bottom of the screen.
