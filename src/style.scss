@@ -97,5 +97,24 @@ body.dmbr-meta-box-resizing-disabled {
 			flex-shrink: 0;
 			fill: currentcolor;
 		}
+
+		// More contrast: a solid line above the bar instead of a faint one, so
+		// it still reads as the edge of the canvas.
+		@media (prefers-contrast: more) {
+			box-shadow: 0 -2px #1e1e1e;
+		}
+
+		// Forced colours (Windows High Contrast) drop the shadow and the
+		// background: the system's button colours take over, with a border
+		// to keep the bar apart from the canvas above it.
+		@media (forced-colors: active) {
+			border-block-start: 1px solid ButtonText;
+			background-color: ButtonFace;
+			color: ButtonText;
+
+			&:focus-visible {
+				outline-color: Highlight;
+			}
+		}
 	}
 }

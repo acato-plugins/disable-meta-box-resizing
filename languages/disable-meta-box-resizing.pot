@@ -2,20 +2,21 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Disable Meta Box Resizing 1.0.1\n"
+"Project-Id-Version: Disable Meta Box Resizing 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disable-meta-box-resizing\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-05T10:47:47+00:00\n"
+"POT-Creation-Date: 2026-11-12T23:07:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: disable-meta-box-resizing\n"
 
 #. Plugin Name of the plugin
 #: disable-meta-box-resizing.php
+#: includes/class-tour.php:228
 msgid "Disable Meta Box Resizing"
 msgstr ""
 
@@ -69,65 +70,135 @@ msgstr ""
 msgid "Disable Meta Box Resizing requires WordPress %1$s or newer, but this site runs WordPress %2$s. The plugin has been deactivated. Please update WordPress to version 7 or newer and activate the plugin again."
 msgstr ""
 
-#: includes/class-settings.php:111
-#: includes/class-settings.php:112
-#: includes/class-settings.php:127
-#: includes/class-settings.php:128
-#: includes/class-settings.php:146
-#: includes/class-settings.php:147
+#: includes/class-settings.php:119
+#: includes/class-settings.php:120
+#: includes/class-settings.php:135
+#: includes/class-settings.php:136
+#: includes/class-settings.php:154
+#: includes/class-settings.php:155
 msgid "Meta Box Resizing"
 msgstr ""
 
-#: includes/class-settings.php:202
+#: includes/class-settings.php:203
 msgid "Settings"
 msgstr ""
 
-#: includes/class-settings.php:225
+#: includes/class-settings.php:313
 msgid "Default state"
 msgstr ""
 
-#: includes/class-settings.php:226
+#: includes/class-settings.php:314
 msgid "Disable meta box resizing by default"
 msgstr ""
 
-#: includes/class-settings.php:227
+#: includes/class-settings.php:315
 msgid "Applies to users who have not made a choice of their own yet. Users who did keep their own setting."
 msgstr ""
 
-#: includes/class-settings.php:230
+#: includes/class-settings.php:318
 msgid "Uninstall"
 msgstr ""
 
-#: includes/class-settings.php:231
+#: includes/class-settings.php:319
 msgid "Remove all data of this plugin when it is uninstalled"
 msgstr ""
 
-#: includes/class-settings.php:232
+#: includes/class-settings.php:320
 msgid "Deletes these settings and every stored user preference. Leave this off to keep the preferences when reinstalling."
 msgstr ""
 
-#: includes/class-settings.php:235
+#: includes/class-settings.php:323
 msgid "Users list"
 msgstr ""
 
-#: includes/class-settings.php:236
+#: includes/class-settings.php:324
 msgid "Show a column with each user's setting"
 msgstr ""
 
-#: includes/class-settings.php:237
+#: includes/class-settings.php:325
 msgid "Adds a read only column to the users overview so you can see who has resizing disabled."
 msgstr ""
 
-#: includes/class-settings.php:250
+#: includes/class-settings.php:338
 msgid "Meta box resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it."
 msgstr ""
 
-#: includes/class-settings.php:297
+#: includes/class-settings.php:385
 msgid "Settings saved."
 msgstr ""
 
-#: includes/class-settings.php:326
+#: includes/class-settings.php:414
 msgid "You are not allowed to change these settings."
+msgstr ""
+
+#: includes/class-tour.php:70
+msgctxt "walkthrough step title"
+msgid "Per user, not per site"
+msgstr ""
+
+#: includes/class-tour.php:71
+msgctxt "walkthrough step"
+msgid "Every user decides for themselves whether the meta box panel can be resized: from the editor's Options menu, its Preferences, or their profile. This screen only sets the starting point."
+msgstr ""
+
+#: includes/class-tour.php:76
+msgctxt "walkthrough step title"
+msgid "The starting point"
+msgstr ""
+
+#: includes/class-tour.php:77
+msgctxt "walkthrough step"
+msgid "Whether resizing starts out switched off for users who have not chosen yet. Anybody who did choose keeps their own choice."
+msgstr ""
+
+#: includes/class-tour.php:82
+msgctxt "walkthrough step title"
+msgid "Who has it off"
+msgstr ""
+
+#: includes/class-tour.php:83
+msgctxt "walkthrough step"
+msgid "Adds a column to the Users screen with each user's setting, and a dropdown to filter the list on it."
+msgstr ""
+
+#: includes/class-tour.php:88
+msgctxt "walkthrough step title"
+msgid "A clean removal"
+msgstr ""
+
+#: includes/class-tour.php:89
+msgctxt "walkthrough step"
+msgid "Off, every user keeps their preference when the plugin is reinstalled. On, uninstalling deletes these settings and every stored preference."
+msgstr ""
+
+#: includes/class-tour.php:94
+msgctxt "walkthrough step title"
+msgid "Save, and you are done"
+msgstr ""
+
+#: includes/class-tour.php:95
+msgctxt "walkthrough step"
+msgid "Nothing changes until you save. To set it for one particular user, open their profile and look for Editor meta boxes."
+msgstr ""
+
+#: includes/class-tour.php:230
+msgctxt "walkthrough pointer"
+msgid "Let every user switch off the resizable meta box panel. A short walkthrough shows you around the settings."
+msgstr ""
+
+#: includes/class-tour.php:231
+msgctxt "walkthrough pointer"
+msgid "Disable Meta Box Resizing has changed. A short walkthrough shows what is new."
+msgstr ""
+
+#: includes/class-tour.php:233
+msgctxt "walkthrough pointer"
+msgid "Take the walkthrough"
+msgstr ""
+
+#: includes/class-tour.php:234
+msgctxt "walkthrough pointer"
+msgid "Not now"
 msgstr ""
 
 #: includes/class-users-list.php:60
@@ -170,6 +241,33 @@ msgstr ""
 
 #: src/preferences-section.js:108
 msgid "Hides the drag handle at the bottom of the editor and keeps the meta box panel expanded."
+msgstr ""
+
+#. translators: 1: number of this step, 2: number of steps.
+#: src/settings.js:146
+#, js-format
+msgctxt "walkthrough progress"
+msgid "Step %1$d of %2$d"
+msgstr ""
+
+#: src/settings.js:188
+msgctxt "walkthrough button"
+msgid "Skip walkthrough"
+msgstr ""
+
+#: src/settings.js:203
+msgctxt "walkthrough button"
+msgid "Done"
+msgstr ""
+
+#: src/settings.js:208
+msgctxt "walkthrough button"
+msgid "Next"
+msgstr ""
+
+#: src/settings.js:262
+msgctxt "walkthrough button"
+msgid "Take the walkthrough"
 msgstr ""
 
 #: src/use-meta-box-resizing.js:59
