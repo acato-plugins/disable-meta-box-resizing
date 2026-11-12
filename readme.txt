@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.7
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,11 +43,25 @@ On multisite the settings live in the network admin, and each site's Settings me
 
 The plugin's row on the **Plugins** screen has a **Settings** link straight to that screen, for anyone who can open it.
 
+A short walkthrough shows an administrator around the settings screen the first time they open it. Until they do, a card beside the **Settings** menu points the way; **Not now** puts it off. It can be taken again at any time from the link at the bottom of the screen, and after an update that adds steps, only the new ones are shown.
+
+= Display modes =
+
+The settings screen and the walkthrough follow the way each administrator has set up their computer and their profile:
+
+* **Dark mode** — when the operating system is set to dark, the plugin's settings screen turns dark as a whole.
+* **More or less contrast** — stronger text and lines, or softer ones, in both light and dark.
+* **Admin colour scheme** — the accent follows the scheme chosen on the profile, darkened where it would otherwise be hard to read.
+* **Forced colours** (Windows High Contrast) — the system's own colours take over, and cards keep a visible edge.
+* **Reduced motion** — no animations, and the walkthrough scrolls without smoothing.
+
+The Meta boxes bar in the editor follows the contrast and forced colours settings too.
+
 = Good to know =
 
 * Development happens at [github.com/acato-plugins/disable-meta-box-resizing](https://github.com/acato-plugins/disable-meta-box-resizing). The uncompiled sources of the editor script and stylesheet ship in `/src`, next to the compiled files in `/build`.
 * The plugin only touches the post editor. The site editor has no meta boxes and is left alone.
-* One piece of user meta and one settings array. No front end code.
+* Two pieces of user meta (the preference, and which walkthrough a user has seen) and one settings array. No front end code.
 * On WordPress older than 7.0 the plugin deactivates itself and explains why, since there is no resizable panel there to switch off.
 
 == Installation ==
@@ -94,6 +108,13 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The post editor with resizing disabled: the meta boxes sit below a full height canvas, with no drag handle and no collapse toggle, and the Meta boxes bar on the bottom edge leading to them.
 
 == Changelog ==
+
+= 1.1.0 =
+* Added a walkthrough of the settings screen, on WordPress's own admin pointers. A card beside the Settings menu leads to it until it is taken or put off with **Not now**, and it can be taken again from the bottom of the screen.
+* Added a dark version of the settings screen, following the operating system, and colours for more and less contrast, forced colours (Windows High Contrast) and every admin colour scheme. The walkthrough honours reduced motion.
+* The Meta boxes bar in the editor follows the more contrast and forced colours settings.
+* Uninstalling with data removal on also forgets which walkthrough each user has seen.
+* Updated the build tooling to the latest WordPress packages on Node 24.
 
 = 1.0.7 =
 * Added a Playground blueprint, so the plugin directory can offer a **Live Preview**: it opens the editor with resizing switched off, a few demo meta boxes below the canvas and the site wide defaults already set. No change to the plugin itself.
