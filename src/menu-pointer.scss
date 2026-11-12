@@ -1,0 +1,166 @@
+@use "banner";
+
+/**
+ * The card beside the Settings menu that leads to the walkthrough.
+ *
+ * It loads on every admin screen until the walkthrough is taken, among
+ * whatever colour scheme the rest of the admin is in, so it keeps the
+ * banner's fixed dark look in every scheme rather than following one.
+ */
+.dmbr-menu-pointer {
+
+	@include banner.banner;
+
+	--dmbr-edge: #{banner.$banner-edge};
+
+	border-radius: 8px;
+	box-shadow: 0 10px 28px rgb(11 12 16 / 0.4);
+	font-size: 13px;
+	inline-size: min(320px, calc(100vw - 200px));
+	line-height: 1.5;
+	position: fixed;
+	z-index: 9999;
+
+	// Arrow towards the menu item, in the card's darkest corner.
+	&::after {
+		background: var(--dmbr-edge);
+		block-size: 14px;
+		content: "";
+		inline-size: 14px;
+		inset-block-start: var(--dmbr-arrow, 32px);
+		inset-inline-start: -7px;
+		position: absolute;
+		transform: rotate(45deg);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		animation: dmbr-menu-pointer-in 200ms ease-out;
+	}
+
+	// A visible edge, as the card no longer stands out by its glow alone.
+	@media (prefers-contrast: more) {
+		--dmbr-edge: #000;
+
+		outline: 2px solid #fff;
+		outline-offset: -2px;
+	}
+
+	@media (prefers-contrast: less) {
+		--dmbr-edge: #2c3036;
+
+		box-shadow: 0 6px 18px rgb(0 0 0 / 0.18);
+	}
+
+	// Forced colours drop the backgrounds; the system's own take over, and
+	// the card keeps an edge so it still stands apart from the page.
+	@media (forced-colors: active) {
+		border: 1px solid CanvasText;
+
+		&::after {
+			border: 1px solid CanvasText;
+		}
+	}
+}
+
+@keyframes dmbr-menu-pointer-in {
+
+	from {
+		opacity: 0;
+		transform: translateX(-6px);
+	}
+}
+
+[dir="rtl"] .dmbr-menu-pointer::after {
+	inset-inline-start: auto;
+	inset-inline-end: -7px;
+}
+
+.dmbr-menu-pointer-body {
+	display: grid;
+	gap: 10px;
+	padding-block: 16px;
+	padding-inline: 18px;
+	position: relative;
+	z-index: 1;
+}
+
+.dmbr-menu-pointer-head {
+	align-items: center;
+	display: flex;
+	gap: 12px;
+}
+
+.dmbr-menu-pointer-wapuu {
+	block-size: 44px;
+	border-radius: 10px;
+	flex: none;
+	inline-size: 44px;
+}
+
+.dmbr-menu-pointer-title {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.3;
+	margin: 0;
+}
+
+.dmbr-menu-pointer-text {
+	color: rgb(255 255 255 / 0.85);
+	margin: 0;
+}
+
+.dmbr-menu-pointer-actions {
+	align-items: center;
+	display: flex;
+	gap: 12px;
+	justify-content: space-between;
+	margin-block-start: 4px;
+}
+
+.dmbr-menu-pointer-go {
+	align-items: center;
+	background: #fff;
+	border-radius: 4px;
+	color: #0b0c10;
+	display: inline-flex;
+	font-weight: 600;
+	min-block-size: 36px;
+	padding-inline: 14px;
+	text-decoration: none;
+
+	&:is(:hover, :focus) {
+		background: #f0f0f1;
+		color: #0b0c10;
+	}
+}
+
+.dmbr-menu-pointer-dismiss {
+	background: none;
+	border: 0;
+	color: rgb(255 255 255 / 0.85);
+	cursor: pointer;
+	font: inherit;
+	min-block-size: 24px;
+	padding-block: 4px;
+	padding-inline: 2px;
+	text-decoration: underline;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+.dmbr-menu-pointer :is(.dmbr-menu-pointer-go, .dmbr-menu-pointer-dismiss):focus-visible {
+	box-shadow: none;
+	outline: 2px solid #fff;
+	outline-offset: 2px;
+}
+
+@media (prefers-contrast: more) {
+
+	.dmbr-menu-pointer-text,
+	.dmbr-menu-pointer-dismiss {
+		color: #fff;
+	}
+}
