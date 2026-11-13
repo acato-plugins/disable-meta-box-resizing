@@ -56,10 +56,10 @@ class Profile {
 
 		wp_nonce_field( self::NONCE_ACTION, self::NONCE_NAME );
 		?>
-		<h2><?php esc_html_e( 'Editor meta boxes', 'disable-meta-box-resizing' ); ?></h2>
+		<h2><?php esc_html_e( 'Editor metaboxes', 'disable-meta-box-resizing' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th scope="row"><?php esc_html_e( 'Meta box panel', 'disable-meta-box-resizing' ); ?></th>
+				<th scope="row"><?php esc_html_e( 'Metabox panel', 'disable-meta-box-resizing' ); ?></th>
 				<td>
 					<label for="<?php echo esc_attr( Preference::META_KEY ); ?>">
 						<input
@@ -69,10 +69,10 @@ class Profile {
 							value="1"
 							<?php checked( Preference::is_disabled_for( $user->ID ) ); ?>
 						/>
-						<?php esc_html_e( 'Disable resizing of the meta box panel', 'disable-meta-box-resizing' ); ?>
+						<?php esc_html_e( 'Disable resizing of the metabox panel', 'disable-meta-box-resizing' ); ?>
 					</label>
 					<p class="description">
-						<?php esc_html_e( 'Hides the drag handle at the bottom of the post editor and keeps the meta box panel expanded, the way it worked before WordPress 7.0.', 'disable-meta-box-resizing' ); ?>
+						<?php esc_html_e( 'Hides the drag handle at the bottom of the post editor and keeps the metabox panel expanded, the way it worked before WordPress 7.0.', 'disable-meta-box-resizing' ); ?>
 					</p>
 				</td>
 			</tr>

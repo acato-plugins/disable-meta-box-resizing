@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-12T23:07:27+00:00\n"
+"POT-Creation-Date: 2026-11-13T11:45:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: disable-meta-box-resizing\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #. Description of the plugin
 #: disable-meta-box-resizing.php
-msgid "Lets each user turn off the resizable meta box panel that WordPress 7.0 added to the bottom of the post editor, restoring the classic always-expanded panel."
+msgid "Lets each user turn off the resizable metabox panel that WordPress 7.0 added to the bottom of the post editor, restoring the classic always-expanded panel."
 msgstr ""
 
 #. Author of the plugin
@@ -41,23 +41,23 @@ msgid "https://acato.nl"
 msgstr ""
 
 #: includes/class-preference.php:53
-msgid "Disable the resizable meta box panel in the post editor."
+msgid "Disable the resizable metabox panel in the post editor."
 msgstr ""
 
 #: includes/class-profile.php:59
-msgid "Editor meta boxes"
+msgid "Editor metaboxes"
 msgstr ""
 
 #: includes/class-profile.php:62
-msgid "Meta box panel"
+msgid "Metabox panel"
 msgstr ""
 
 #: includes/class-profile.php:72
-msgid "Disable resizing of the meta box panel"
+msgid "Disable resizing of the metabox panel"
 msgstr ""
 
 #: includes/class-profile.php:75
-msgid "Hides the drag handle at the bottom of the post editor and keeps the meta box panel expanded, the way it worked before WordPress 7.0."
+msgid "Hides the drag handle at the bottom of the post editor and keeps the metabox panel expanded, the way it worked before WordPress 7.0."
 msgstr ""
 
 #: includes/class-requirements.php:51
@@ -88,7 +88,7 @@ msgid "Default state"
 msgstr ""
 
 #: includes/class-settings.php:314
-msgid "Disable meta box resizing by default"
+msgid "Disable metabox resizing by default"
 msgstr ""
 
 #: includes/class-settings.php:315
@@ -120,7 +120,7 @@ msgid "Adds a read only column to the users overview so you can see who has resi
 msgstr ""
 
 #: includes/class-settings.php:338
-msgid "Meta box resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it."
+msgid "Metabox resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it."
 msgstr ""
 
 #: includes/class-settings.php:385
@@ -138,7 +138,7 @@ msgstr ""
 
 #: includes/class-tour.php:71
 msgctxt "walkthrough step"
-msgid "Every user decides for themselves whether the meta box panel can be resized: from the editor's Options menu, its Preferences, or their profile. This screen only sets the starting point."
+msgid "Every user decides for themselves whether the metabox panel can be resized: from the editor's Options menu, its Preferences, or their profile. This screen only sets the starting point."
 msgstr ""
 
 #: includes/class-tour.php:76
@@ -178,12 +178,12 @@ msgstr ""
 
 #: includes/class-tour.php:95
 msgctxt "walkthrough step"
-msgid "Nothing changes until you save. To set it for one particular user, open their profile and look for Editor meta boxes."
+msgid "Nothing changes until you save. To set it for one particular user, open their profile and look for Editor metaboxes."
 msgstr ""
 
 #: includes/class-tour.php:230
 msgctxt "walkthrough pointer"
-msgid "Let every user switch off the resizable meta box panel. A short walkthrough shows you around the settings."
+msgid "Let every user switch off the resizable metabox panel. A short walkthrough shows you around the settings."
 msgstr ""
 
 #: includes/class-tour.php:231
@@ -202,15 +202,15 @@ msgid "Not now"
 msgstr ""
 
 #: includes/class-users-list.php:60
-msgid "Meta box resizing"
+msgid "Metabox resizing"
 msgstr ""
 
 #: includes/class-users-list.php:142
-msgid "Filter by meta box resizing"
+msgid "Filter by metabox resizing"
 msgstr ""
 
 #: includes/class-users-list.php:145
-msgid "Meta box resizing: all"
+msgid "Metabox resizing: all"
 msgstr ""
 
 #: includes/class-users-list.php:154
@@ -231,16 +231,16 @@ msgstr ""
 
 #: src/meta-boxes-bar.js:146
 #: src/preferences-section.js:96
-msgid "Meta boxes"
+msgid "Metaboxes"
 msgstr ""
 
 #: src/more-menu-item.js:24
 #: src/preferences-section.js:104
-msgid "Disable meta box resizing"
+msgid "Disable metabox resizing"
 msgstr ""
 
 #: src/preferences-section.js:108
-msgid "Hides the drag handle at the bottom of the editor and keeps the meta box panel expanded."
+msgid "Hides the drag handle at the bottom of the editor and keeps the metabox panel expanded."
 msgstr ""
 
 #. translators: 1: number of this step, 2: number of steps.
@@ -271,5 +271,5 @@ msgid "Take the walkthrough"
 msgstr ""
 
 #: src/use-meta-box-resizing.js:59
-msgid "Could not save the meta box preference."
+msgid "Could not save the metabox preference."
 msgstr ""

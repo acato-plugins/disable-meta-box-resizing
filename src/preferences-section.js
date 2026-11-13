@@ -93,7 +93,7 @@ const PreferencesSection = () => {
 		<fieldset className="preferences-modal__section">
 			<legend className="preferences-modal__section-legend">
 				<h2 className="preferences-modal__section-title">
-					{ __( 'Meta boxes', 'disable-meta-box-resizing' ) }
+					{ __( 'Metaboxes', 'disable-meta-box-resizing' ) }
 				</h2>
 			</legend>
 			<div className="preferences-modal__section-content">
@@ -102,11 +102,11 @@ const PreferencesSection = () => {
 					checked={ isDisabled }
 					disabled={ isSaving }
 					label={ __(
-						'Disable meta box resizing',
+						'Disable metabox resizing',
 						'disable-meta-box-resizing'
 					) }
 					help={ __(
-						'Hides the drag handle at the bottom of the editor and keeps the meta box panel expanded.',
+						'Hides the drag handle at the bottom of the editor and keeps the metabox panel expanded.',
 						'disable-meta-box-resizing'
 					) }
 					onChange={ toggle }

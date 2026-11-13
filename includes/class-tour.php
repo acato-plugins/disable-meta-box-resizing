@@ -68,7 +68,7 @@ class Tour {
 				'since'  => '1.1.0',
 				'target' => '.dmbr-intro',
 				'title'  => _x( 'Per user, not per site', 'walkthrough step title', 'disable-meta-box-resizing' ),
-				'text'   => _x( 'Every user decides for themselves whether the meta box panel can be resized: from the editor\'s Options menu, its Preferences, or their profile. This screen only sets the starting point.', 'walkthrough step', 'disable-meta-box-resizing' ),
+				'text'   => _x( 'Every user decides for themselves whether the metabox panel can be resized: from the editor\'s Options menu, its Preferences, or their profile. This screen only sets the starting point.', 'walkthrough step', 'disable-meta-box-resizing' ),
 			),
 			array(
 				'since'  => '1.1.0',
@@ -92,7 +92,7 @@ class Tour {
 				'since'  => '1.1.0',
 				'target' => '.dmbr-settings #submit',
 				'title'  => _x( 'Save, and you are done', 'walkthrough step title', 'disable-meta-box-resizing' ),
-				'text'   => _x( 'Nothing changes until you save. To set it for one particular user, open their profile and look for Editor meta boxes.', 'walkthrough step', 'disable-meta-box-resizing' ),
+				'text'   => _x( 'Nothing changes until you save. To set it for one particular user, open their profile and look for Editor metaboxes.', 'walkthrough step', 'disable-meta-box-resizing' ),
 			),
 		);
 	}
@@ -227,7 +227,7 @@ class Tour {
 					'name'     => self::pointer_name(),
 					'title'    => __( 'Disable Meta Box Resizing', 'disable-meta-box-resizing' ),
 					'text'     => $first
-						? _x( 'Let every user switch off the resizable meta box panel. A short walkthrough shows you around the settings.', 'walkthrough pointer', 'disable-meta-box-resizing' )
+						? _x( 'Let every user switch off the resizable metabox panel. A short walkthrough shows you around the settings.', 'walkthrough pointer', 'disable-meta-box-resizing' )
 						: _x( 'Disable Meta Box Resizing has changed. A short walkthrough shows what is new.', 'walkthrough pointer', 'disable-meta-box-resizing' ),
 					'link'     => Settings::page_url(),
 					'linkText' => _x( 'Take the walkthrough', 'walkthrough pointer', 'disable-meta-box-resizing' ),

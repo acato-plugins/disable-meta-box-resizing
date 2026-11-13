@@ -57,7 +57,7 @@ export const useMetaBoxResizing = () => {
 				createErrorNotice(
 					error?.message ||
 						__(
-							'Could not save the meta box preference.',
+							'Could not save the metabox preference.',
 							'disable-meta-box-resizing'
 						),
 					{ type: 'snackbar' }

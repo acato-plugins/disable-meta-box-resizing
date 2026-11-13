@@ -57,7 +57,7 @@ class Users_List {
 			return $columns;
 		}
 
-		$columns[ self::COLUMN ] = __( 'Meta box resizing', 'disable-meta-box-resizing' );
+		$columns[ self::COLUMN ] = __( 'Metabox resizing', 'disable-meta-box-resizing' );
 
 		return $columns;
 	}
@@ -139,10 +139,10 @@ class Users_List {
 		$selected = $this->get_requested_filter();
 		?>
 		<label class="screen-reader-text" for="<?php echo esc_attr( self::FILTER ); ?>">
-			<?php esc_html_e( 'Filter by meta box resizing', 'disable-meta-box-resizing' ); ?>
+			<?php esc_html_e( 'Filter by metabox resizing', 'disable-meta-box-resizing' ); ?>
 		</label>
 		<select name="<?php echo esc_attr( self::FILTER ); ?>" id="<?php echo esc_attr( self::FILTER ); ?>">
-			<option value=""><?php esc_html_e( 'Meta box resizing: all', 'disable-meta-box-resizing' ); ?></option>
+			<option value=""><?php esc_html_e( 'Metabox resizing: all', 'disable-meta-box-resizing' ); ?></option>
 			<option value="disabled" <?php selected( $selected, 'disabled' ); ?>>
 				<?php echo esc_html( self::label( true ) ); ?>
 			</option>
