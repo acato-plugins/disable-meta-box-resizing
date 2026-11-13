@@ -50,7 +50,7 @@ class Preference {
 			self::META_KEY,
 			array(
 				'type'              => 'boolean',
-				'description'       => __( 'Disable the resizable meta box panel in the post editor.', 'disable-meta-box-resizing' ),
+				'description'       => __( 'Disable the resizable metabox panel in the post editor.', 'disable-meta-box-resizing' ),
 				'single'            => true,
 				// Users who never chose fall back to the site wide default, so
 				// get_user_meta() and the REST API both report the right value.

@@ -21,7 +21,7 @@ const MoreMenuItem = () => {
 			disabled={ isSaving }
 			onClick={ () => toggle( ! isDisabled ) }
 		>
-			{ __( 'Disable meta box resizing', 'disable-meta-box-resizing' ) }
+			{ __( 'Disable metabox resizing', 'disable-meta-box-resizing' ) }
 		</PluginMoreMenuItem>
 	);
 };

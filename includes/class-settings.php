@@ -311,7 +311,7 @@ class Settings {
 		return array(
 			'default_state'            => array(
 				'label' => __( 'Default state', 'disable-meta-box-resizing' ),
-				'text'  => __( 'Disable meta box resizing by default', 'disable-meta-box-resizing' ),
+				'text'  => __( 'Disable metabox resizing by default', 'disable-meta-box-resizing' ),
 				'help'  => __( 'Applies to users who have not made a choice of their own yet. Users who did keep their own setting.', 'disable-meta-box-resizing' ),
 			),
 			'remove_data_on_uninstall' => array(
@@ -335,7 +335,7 @@ class Settings {
 	public function render_section_description(): void {
 		printf(
 			'<p class="dmbr-intro">%s</p>',
-			esc_html__( 'Meta box resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it.', 'disable-meta-box-resizing' )
+			esc_html__( 'Metabox resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it.', 'disable-meta-box-resizing' )
 		);
 	}
 

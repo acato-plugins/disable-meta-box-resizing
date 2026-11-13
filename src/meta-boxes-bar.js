@@ -143,7 +143,7 @@ const MetaBoxesBar = () => {
 		>
 			{ isRevealed
 				? __( 'Back to the content', 'disable-meta-box-resizing' )
-				: __( 'Meta boxes', 'disable-meta-box-resizing' ) }
+				: __( 'Metaboxes', 'disable-meta-box-resizing' ) }
 			<Icon icon={ isRevealed ? chevronUp : chevronDown } />
 		</button>,
 		scroller
