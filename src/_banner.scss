@@ -1,9 +1,9 @@
 /**
- * The plugin banner's look, shared by the card beside the Settings menu and
- * the header of each walkthrough step, so both read as this plugin's and not
- * as core's blue pointer: near black, a green glow top right, a purple one
- * bottom right, and a faint ring that echoes the arcs of the banner. White at
- * 85% on the lightest point of the glow is still 7:1.
+ * The plugin banner's look, for the header of each walkthrough step, so it
+ * reads as this plugin's and not as core's blue pointer: near black, a green
+ * glow top right, a purple one bottom right, and a faint ring that echoes the
+ * arcs of the banner. White at 85% on the lightest point of the glow is still
+ * 7:1.
  */
 @mixin banner {
 	background:

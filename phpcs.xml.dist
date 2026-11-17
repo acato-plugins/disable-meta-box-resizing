@@ -34,6 +34,7 @@
 			<property name="prefixes" type="array">
 				<element value="DisableMetaBoxResizing"/>
 				<element value="dmbr"/>
+				<element value="disable_meta_box_resizing"/>
 			</property>
 		</properties>
 	</rule>

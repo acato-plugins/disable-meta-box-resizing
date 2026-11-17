@@ -12,8 +12,9 @@ namespace DisableMetaBoxResizing;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Enqueues a build entry point, its script and its stylesheet, under one
- * handle, with the dependencies and version wp-scripts wrote next to it.
+ * Enqueues a build entry point, its script and its stylesheet, or only its
+ * stylesheet, under one handle, with the dependencies and version wp-scripts
+ * wrote next to it.
  */
 final class Assets {
 
@@ -57,16 +58,36 @@ final class Assets {
 
 		wp_set_script_translations( $handle, 'disable-meta-box-resizing' );
 
-		if ( is_readable( DMBR_PLUGIN_DIR . 'build/' . $entry . '.css' ) ) {
-			// The asset version is a hash of the whole entry point, so it
-			// changes when the stylesheet changes too.
-			wp_enqueue_style(
-				$handle,
-				plugins_url( 'build/' . $entry . '.css', DMBR_PLUGIN_FILE ),
-				$style_deps,
-				$asset['version']
-			);
+		self::enqueue_style( $entry, $style_deps );
+
+		return true;
+	}
+
+	/**
+	 * Enqueue only the stylesheet built for an entry point, without its script.
+	 *
+	 * @param string   $entry      Name of the entry point, e.g. `settings`.
+	 * @param string[] $style_deps Stylesheets the entry's stylesheet builds on.
+	 *
+	 * @return bool False when no stylesheet was built for the entry point.
+	 */
+	public static function enqueue_style( string $entry, array $style_deps = array() ): bool {
+		$asset_file = DMBR_PLUGIN_DIR . 'build/' . $entry . '.asset.php';
+
+		if ( ! is_readable( $asset_file ) || ! is_readable( DMBR_PLUGIN_DIR . 'build/' . $entry . '.css' ) ) {
+			return false;
 		}
+
+		$asset = require $asset_file;
+
+		// The asset version is a hash of the whole entry point, so it
+		// changes when the stylesheet changes too.
+		wp_enqueue_style(
+			self::handle( $entry ),
+			plugins_url( 'build/' . $entry . '.css', DMBR_PLUGIN_FILE ),
+			$style_deps,
+			$asset['version']
+		);
 
 		return true;
 	}

@@ -89,6 +89,7 @@ class Settings {
 			'default_state'            => false,
 			'remove_data_on_uninstall' => false,
 			'show_in_user_table'       => false,
+			'walkthrough'              => true,
 		);
 	}
 
@@ -323,6 +324,13 @@ class Settings {
 				'label' => __( 'Users list', 'disable-meta-box-resizing' ),
 				'text'  => __( 'Show a column with each user\'s setting', 'disable-meta-box-resizing' ),
 				'help'  => __( 'Adds a read only column to the users overview so you can see who has resizing disabled.', 'disable-meta-box-resizing' ),
+			),
+			'walkthrough'              => array(
+				'label' => _x( 'Walkthrough', 'field label', 'disable-meta-box-resizing' ),
+				'text'  => _x( 'Offer the walkthrough of this screen', 'checkbox label', 'disable-meta-box-resizing' ),
+				'help'  => is_multisite()
+					? _x( 'Adds a Start walkthrough link to the plugin on the Plugins screen, and at the foot of this screen, on the network and on every site. It never starts by itself.', 'field description', 'disable-meta-box-resizing' )
+					: _x( 'Adds a Start walkthrough link to the plugin on the Plugins screen, and at the foot of this screen. It never starts by itself.', 'field description', 'disable-meta-box-resizing' ),
 			),
 		);
 	}
