@@ -1,6 +1,6 @@
 {
 	"name": "disable-meta-box-resizing",
-	"version": "1.1.2",
+	"version": "1.2.0",
 	"description": "Lets each user turn off the resizable meta box panel that WordPress 7.0 added to the bottom of the post editor.",
 	"license": "GPL-2.0-or-later",
 	"author": "Acato (https://acato.nl)",
@@ -12,8 +12,8 @@
 		"node": ">=24"
 	},
 	"scripts": {
-		"build": "wp-scripts build src/index.js src/settings.js src/menu-pointer.js",
-		"start": "wp-scripts start src/index.js src/settings.js src/menu-pointer.js",
+		"build": "wp-scripts build src/index.js src/settings.js",
+		"start": "wp-scripts start src/index.js src/settings.js",
 		"format": "wp-scripts format",
 		"lint:js": "wp-scripts lint-js",
 		"lint:style": "wp-scripts lint-style"

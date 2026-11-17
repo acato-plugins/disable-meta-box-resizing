@@ -2,21 +2,20 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Disable Meta Box Resizing 1.1.2\n"
+"Project-Id-Version: Disable Meta Box Resizing 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disable-meta-box-resizing\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-13T11:47:49+00:00\n"
+"POT-Creation-Date: 2026-11-17T18:27:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: disable-meta-box-resizing\n"
 
 #. Plugin Name of the plugin
 #: disable-meta-box-resizing.php
-#: includes/class-tour.php:228
 msgid "Disable Meta Box Resizing"
 msgstr ""
 
@@ -70,135 +69,145 @@ msgstr ""
 msgid "Disable Meta Box Resizing requires WordPress %1$s or newer, but this site runs WordPress %2$s. The plugin has been deactivated. Please update WordPress to version 7 or newer and activate the plugin again."
 msgstr ""
 
-#: includes/class-settings.php:119
 #: includes/class-settings.php:120
-#: includes/class-settings.php:135
+#: includes/class-settings.php:121
 #: includes/class-settings.php:136
-#: includes/class-settings.php:154
+#: includes/class-settings.php:137
 #: includes/class-settings.php:155
+#: includes/class-settings.php:156
 msgid "Meta Box Resizing"
 msgstr ""
 
-#: includes/class-settings.php:203
+#: includes/class-settings.php:204
 msgid "Settings"
 msgstr ""
 
-#: includes/class-settings.php:313
+#: includes/class-settings.php:314
 msgid "Default state"
 msgstr ""
 
-#: includes/class-settings.php:314
+#: includes/class-settings.php:315
 msgid "Disable metabox resizing by default"
 msgstr ""
 
-#: includes/class-settings.php:315
+#: includes/class-settings.php:316
 msgid "Applies to users who have not made a choice of their own yet. Users who did keep their own setting."
 msgstr ""
 
-#: includes/class-settings.php:318
+#: includes/class-settings.php:319
 msgid "Uninstall"
 msgstr ""
 
-#: includes/class-settings.php:319
+#: includes/class-settings.php:320
 msgid "Remove all data of this plugin when it is uninstalled"
 msgstr ""
 
-#: includes/class-settings.php:320
+#: includes/class-settings.php:321
 msgid "Deletes these settings and every stored user preference. Leave this off to keep the preferences when reinstalling."
 msgstr ""
 
-#: includes/class-settings.php:323
+#: includes/class-settings.php:324
 msgid "Users list"
 msgstr ""
 
-#: includes/class-settings.php:324
+#: includes/class-settings.php:325
 msgid "Show a column with each user's setting"
 msgstr ""
 
-#: includes/class-settings.php:325
+#: includes/class-settings.php:326
 msgid "Adds a read only column to the users overview so you can see who has resizing disabled."
 msgstr ""
 
-#: includes/class-settings.php:338
+#: includes/class-settings.php:329
+msgctxt "field label"
+msgid "Walkthrough"
+msgstr ""
+
+#: includes/class-settings.php:330
+msgctxt "checkbox label"
+msgid "Offer the walkthrough of this screen"
+msgstr ""
+
+#: includes/class-settings.php:332
+msgctxt "field description"
+msgid "Adds a Start walkthrough link to the plugin on the Plugins screen, and at the foot of this screen, on the network and on every site. It never starts by itself."
+msgstr ""
+
+#: includes/class-settings.php:333
+msgctxt "field description"
+msgid "Adds a Start walkthrough link to the plugin on the Plugins screen, and at the foot of this screen. It never starts by itself."
+msgstr ""
+
+#: includes/class-settings.php:346
 msgid "Metabox resizing is a per user preference. These settings decide the starting point for that preference and how the plugin behaves around it."
 msgstr ""
 
-#: includes/class-settings.php:385
+#: includes/class-settings.php:393
 msgid "Settings saved."
 msgstr ""
 
-#: includes/class-settings.php:414
+#: includes/class-settings.php:422
 msgid "You are not allowed to change these settings."
 msgstr ""
 
-#: includes/class-tour.php:70
+#: includes/class-tour.php:84
 msgctxt "walkthrough step title"
 msgid "Per user, not per site"
 msgstr ""
 
-#: includes/class-tour.php:71
+#: includes/class-tour.php:85
 msgctxt "walkthrough step"
 msgid "Every user decides for themselves whether the metabox panel can be resized: from the editor's Options menu, its Preferences, or their profile. This screen only sets the starting point."
 msgstr ""
 
-#: includes/class-tour.php:76
+#: includes/class-tour.php:90
 msgctxt "walkthrough step title"
 msgid "The starting point"
 msgstr ""
 
-#: includes/class-tour.php:77
+#: includes/class-tour.php:91
 msgctxt "walkthrough step"
 msgid "Whether resizing starts out switched off for users who have not chosen yet. Anybody who did choose keeps their own choice."
 msgstr ""
 
-#: includes/class-tour.php:82
+#: includes/class-tour.php:96
 msgctxt "walkthrough step title"
 msgid "Who has it off"
 msgstr ""
 
-#: includes/class-tour.php:83
+#: includes/class-tour.php:97
 msgctxt "walkthrough step"
 msgid "Adds a column to the Users screen with each user's setting, and a dropdown to filter the list on it."
 msgstr ""
 
-#: includes/class-tour.php:88
+#: includes/class-tour.php:102
 msgctxt "walkthrough step title"
 msgid "A clean removal"
 msgstr ""
 
-#: includes/class-tour.php:89
+#: includes/class-tour.php:103
 msgctxt "walkthrough step"
 msgid "Off, every user keeps their preference when the plugin is reinstalled. On, uninstalling deletes these settings and every stored preference."
 msgstr ""
 
-#: includes/class-tour.php:94
+#: includes/class-tour.php:108
 msgctxt "walkthrough step title"
 msgid "Save, and you are done"
 msgstr ""
 
-#: includes/class-tour.php:95
+#: includes/class-tour.php:109
 msgctxt "walkthrough step"
 msgid "Nothing changes until you save. To set it for one particular user, open their profile and look for Editor metaboxes."
 msgstr ""
 
-#: includes/class-tour.php:230
-msgctxt "walkthrough pointer"
-msgid "Let every user switch off the resizable metabox panel. A short walkthrough shows you around the settings."
+#: includes/class-tour.php:253
+msgctxt "walkthrough tag on the Plugins screen"
+msgid "New"
 msgstr ""
 
-#: includes/class-tour.php:231
-msgctxt "walkthrough pointer"
-msgid "Disable Meta Box Resizing has changed. A short walkthrough shows what is new."
-msgstr ""
-
-#: includes/class-tour.php:233
-msgctxt "walkthrough pointer"
-msgid "Take the walkthrough"
-msgstr ""
-
-#: includes/class-tour.php:234
-msgctxt "walkthrough pointer"
-msgid "Not now"
+#: includes/class-tour.php:259
+msgctxt "plugin action link"
+msgid "Start walkthrough"
 msgstr ""
 
 #: includes/class-users-list.php:60
@@ -244,28 +253,28 @@ msgid "Hides the drag handle at the bottom of the editor and keeps the metabox p
 msgstr ""
 
 #. translators: 1: number of this step, 2: number of steps.
-#: src/settings.js:146
+#: src/settings.js:148
 #, js-format
 msgctxt "walkthrough progress"
 msgid "Step %1$d of %2$d"
 msgstr ""
 
-#: src/settings.js:188
+#: src/settings.js:190
 msgctxt "walkthrough button"
 msgid "Skip walkthrough"
 msgstr ""
 
-#: src/settings.js:203
+#: src/settings.js:205
 msgctxt "walkthrough button"
 msgid "Done"
 msgstr ""
 
-#: src/settings.js:208
+#: src/settings.js:210
 msgctxt "walkthrough button"
 msgid "Next"
 msgstr ""
 
-#: src/settings.js:262
+#: src/settings.js:264
 msgctxt "walkthrough button"
 msgid "Take the walkthrough"
 msgstr ""

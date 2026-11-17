@@ -4,7 +4,7 @@ Tags: editor, meta boxes, block editor, preferences, custom fields
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,12 +38,15 @@ Under **Settings → Meta Box Resizing** (or **Network Admin → Settings → Me
 * **Default state** — whether resizing starts out disabled for users who have not chosen for themselves. Users who did choose keep their own setting.
 * **Uninstall** — whether to delete the plugin's settings and every stored user preference when the plugin is uninstalled. Off by default, so nothing is lost on a reinstall.
 * **Users list** — adds a read only column to the users overview showing each user's setting, plus a dropdown to filter the list on it.
+* **Walkthrough** — whether the walkthrough of the settings screen is offered. On by default.
 
 On multisite the settings live in the network admin, and each site's Settings menu links through to them.
 
 The plugin's row on the **Plugins** screen has a **Settings** link straight to that screen, for anyone who can open it.
 
-A short walkthrough shows an administrator around the settings screen the first time they open it. Until they do, a card beside the **Settings** menu points the way; **Not now** puts it off. It can be taken again at any time from the link at the bottom of the screen, and after an update that adds steps, only the new ones are shown.
+A short walkthrough shows an administrator around the settings screen. It never starts by itself. Start it from the **Start walkthrough** link beside **Settings** on the Plugins screen, tagged **New** while there is something you have not seen, or from the link at the foot of the settings screen. After an update that adds to the screen, the link on the Plugins screen shows only what is new.
+
+Don't want it? Switch off **Walkthrough** in the settings, for the site or, on multisite, for the whole network, and both links go. In code, `define( 'DMBR_DISABLE_WALKTHROUGH', true );` or the `disable_meta_box_resizing_walkthrough` filter does the same.
 
 = Display modes =
 
@@ -108,6 +111,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 3. The post editor with resizing disabled: the metaboxes sit below a full height canvas, with no drag handle and no collapse toggle, and the Metaboxes bar on the bottom edge leading to them.
 
 == Changelog ==
+
+= 1.2.0 =
+* The walkthrough no longer starts by itself, and the card beside the **Settings** menu is gone. Start it from the new **Start walkthrough** link beside **Settings** on the Plugins screen, tagged **New** until you have taken it, or from the link at the foot of the settings screen.
+* The walkthrough can be switched off in the settings, for the site or on multisite for the whole network, with the `DMBR_DISABLE_WALKTHROUGH` constant, or with the `disable_meta_box_resizing_walkthrough` filter.
 
 = 1.1.2 =
 * Wording: "meta box" is now written "metabox" in the interface, following the WordPress translation glossary. The plugin name stays the same. Translations of the changed texts need to be done again.
